@@ -6,14 +6,6 @@
 
 메모리: 10.2 MB, 시간: 81.78 ms
 
-### 구분
-
-코딩테스트 연습 > 연습문제
-
-### 채점결과
-
-Empty
-
 ### 문제 설명
 
 <p>피보나치 수는 F(0) = 0, F(1) = 1일 때, 1 이상의 n에 대하여 F(n) = F(n-1) + F(n-2) 가 적용되는 수 입니다. </p>
@@ -58,9 +50,10 @@ Empty
 
 <p>피보나치수는 0번째부터 0, 1, 1, 2, 3, 5, ... 와 같이 이어집니다.</p>
 
-<h5>문제가 잘 안풀린다면😢</h5>
-
-<p>힌트가 필요한가요? [코딩테스트 연습 힌트 모음집]으로 오세요! → <a href="https://school.programmers.co.kr/learn/courses/14743?itm_content=lesson12945" target="_blank" rel="noopener">클릭</a></p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+# Issue
+- 재귀 함수 접근  : recursion error > 배열 접근
+- 배열 접근   : runtime error > 단순 변수 접근
+  
+
