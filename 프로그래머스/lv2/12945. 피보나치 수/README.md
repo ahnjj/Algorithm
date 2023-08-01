@@ -55,5 +55,9 @@
 # Issue
 - 재귀 함수 접근  : recursion error > 배열 접근
 - 배열 접근   : runtime error > 단순 변수 접근
+
+# Solution
+정형화된 풀이가 있지만, 이 속에서도 error 와 시도, 해결을 통해 새로운 접근 방식을 배웠다.
+
   
 
