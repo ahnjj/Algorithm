@@ -10,10 +10,6 @@
 
 코딩테스트 연습 > 2021 카카오 채용연계형 인턴십
 
-### 채점결과
-
-Empty
-
 ### 문제 설명
 
 <p><img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/d31cb063-4025-4412-8cbc-6ac6909cf93e/img1.png" title="" alt="img1.png"></p>
@@ -154,3 +150,11 @@ Empty
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+>
+
+## Issue
+제한시간 10초 때문에 시간을 단축하기 위해 여러가지 replace 방법 시도
+
+## Approach
+1. nested replace -> runtime error
+2. dictionary 로 replace할 내용 정리 -> re.sub / replace : 단순하면서도 접근했던 방법중에는 시간 초과안함
