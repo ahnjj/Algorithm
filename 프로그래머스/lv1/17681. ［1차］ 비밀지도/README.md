@@ -10,10 +10,6 @@
 
 코딩테스트 연습 > 2018 KAKAO BLIND RECRUITMENT
 
-### 채점결과
-
-Empty
-
 ### 문제 설명
 
 <h2>비밀지도</h2>
@@ -97,3 +93,6 @@ Empty
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+
+## Issue
+bitwise operation에 대해 제대로 숙지하지 못해서 숫자를 binary로 바꾸고 계산하고 두번 나누어서 진행했다. -> 속도 / 코드 가독성도 떨어진다.
