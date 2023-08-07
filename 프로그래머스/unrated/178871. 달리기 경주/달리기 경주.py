@@ -1,6 +1,6 @@
 def solution(players, callings):
 
-    cur_players = {v : i+1 for i,v in enumerate(players)}
+    cur_players = {player : rank for rank, player in enumerate(players)}
     cur_rank = {rank : player for player, rank in cur_players.items()}   
 
     for i in callings:
