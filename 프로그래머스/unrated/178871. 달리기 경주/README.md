@@ -1,4 +1,4 @@
-# [unrated] 달리기 경주 - 178871 
+# 달리기 경주 - index / sort로는 시간복잡도가 너무 높은 문제
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/178871) 
 
