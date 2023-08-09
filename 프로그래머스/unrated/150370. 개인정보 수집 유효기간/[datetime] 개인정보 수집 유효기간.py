@@ -1,9 +1,9 @@
 def solution(today, terms, privacies):
     from datetime import datetime 
-    from dateutil.relativedelta import relativedelta
+    from dateutil.relativedelta import relativedelta # 월 계산 할 때는 relativedelta
     answer = []
 
-    today = datetime.strptime(today, '%Y.%m.%d')
+    today = datetime.strptime(today, '%Y.%m.%d') # string -> datetime 할 때는 strptime
 
     # terms -> dict 
     terms_dict = {}
@@ -19,6 +19,6 @@ def solution(today, terms, privacies):
         expire = start + relativedelta(months = term_len) # 파기날짜
 
         # expire인지 체크
-        if today >= expire:
+        if today >= expire: # datetime 끼리는 크기비교 가능
             answer.append(num+1)
     return answer
