@@ -2,6 +2,10 @@
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/68644) 
 
+### 접근법
+1. for 문 2번으로 조합 직접 만들기
+2. itertools package의 combination -> for문 1번으로 해결 가능
+
 ### 성능 요약
 
 메모리: 10.1 MB, 시간: 0.19 ms
@@ -9,10 +13,6 @@
 ### 구분
 
 코딩테스트 연습 > 월간 코드 챌린지 시즌1
-
-### 채점결과
-
-Empty
 
 ### 문제 설명
 
