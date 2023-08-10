@@ -1,4 +1,4 @@
-# [unrated] 둘만의 암호 - 155652 
+# ⭐️ 둘만의 암호
 
 [문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/155652) 
 
@@ -71,3 +71,14 @@ Empty
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+>
+
+
+### 나의 풀이
+1. lowercase 를 뒤로 push 하는 것이니까 -> ord로 바꿔서 숫자로 풀어야지
+2. z를 넘어가면 다시 a로 돌아오니까 -> % operator 사용해야지
+3. 특정 문자는 skip해야하니까 -> condition 으로 제어해야지
+
+### 더 효율 적인 풀이
+1. 알파벳 전체에서 몇 특정 문자를 제외하고 -> for 문으로 제어하지 않고 -> set 차집합 이용해서 처음부터 알파벳 범위를 재설정
+2. dict를 사용해서 굳이 복잡하게 ord할 필요 없음...
