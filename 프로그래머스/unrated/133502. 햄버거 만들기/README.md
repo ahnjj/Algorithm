@@ -6,14 +6,6 @@
 
 메모리: 10.1 MB, 시간: 0.01 ms
 
-### 구분
-
-코딩테스트 연습 > 연습문제
-
-### 채점결과
-
-Empty
-
 ### 문제 설명
 
 <p>햄버거 가게에서 일을 하는 상수는 햄버거를 포장하는 일을 합니다. 함께 일을 하는 다른 직원들이 햄버거에 들어갈  재료를 조리해 주면 조리된 순서대로 상수의 앞에 아래서부터 위로 쌓이게 되고, 상수는 순서에 맞게 쌓여서 완성된 햄버거를 따로 옮겨 포장을 하게 됩니다. 상수가 일하는 가게는 정해진 순서(아래서부터, 빵 – 야채 – 고기 - 빵)로 쌓인 햄버거만 포장을 합니다. 상수는 손이 굉장히 빠르기 때문에 상수가 포장하는 동안 속 재료가 추가적으로 들어오는 일은 없으며,  재료의 높이는 무시하여  재료가 높이 쌓여서 일이 힘들어지는 경우는 없습니다.</p>
@@ -67,4 +59,36 @@ Empty
 </ul>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+### Approach
+#### 1.string 으로 바꿔서 replace
+- replace 의 세번째 인자(바꾸는 횟수) 를 1로 지정.
+  while '1231' in ingredient:
+    count += 1
+    ingredient = ingredient.replace('1231','',1)
+    hamburger += 1
+  - 결과 : 시간 초과
+  - 원인 : replace를 하는 경우 순회하면서 위치를 찾는다.
+ 
+#### 2. string 으로 바꿔서 find
+while '1231' in ingredient:
+    hamberger += 1
+    idx = ingredient.find('1231')
+    
+    if idx + 4 == len(ingredient):
+        ingredient = ingredient[:idx]
+    else:
+        ingredient = ingredient[:idx]+ingredient[idx+4:]
+  - 결과 : 시간 초과
+  - 원인 : slicing 새로운 서브스트링에 원래 스트링 원소를 복사해서 붙여넣어야한다.
+  - 원인2 : find를 하면 순회하면서 위치를 찾는다.
+
+#### 3. list로 재료 쌓아가면서 마지막 4개 원소를 확인해서 맞으면 indexing한다.
+if len(ingredient) >= 4:
+    kitchen = ingredient[0:3]
+    for i in ingredient[3:]:
+        kitchen.append(i)
+        if kitchen[-4:] == [1,2,3,1]:
+            hamburger += 1
+            kitchen = kitchen[:-4]
+  - 결과 : 시간 초과
+  - 원인 : slicing 작업은 파이썬이 새로운 리스트에 원소를 붙여넣어야하기 때문에
