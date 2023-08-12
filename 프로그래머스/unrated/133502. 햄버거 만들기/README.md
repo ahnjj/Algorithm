@@ -62,14 +62,17 @@
 ### Approach
 #### 1.string 으로 바꿔서 replace
 - replace 의 세번째 인자(바꾸는 횟수) 를 1로 지정.
+```
   while '1231' in ingredient:
     count += 1
     ingredient = ingredient.replace('1231','',1)
     hamburger += 1
+```
   - 결과 : 시간 초과
   - 원인 : replace를 하는 경우 순회하면서 위치를 찾는다.
  
 #### 2. string 으로 바꿔서 find
+```
 while '1231' in ingredient:
     hamberger += 1
     idx = ingredient.find('1231')
@@ -78,11 +81,13 @@ while '1231' in ingredient:
         ingredient = ingredient[:idx]
     else:
         ingredient = ingredient[:idx]+ingredient[idx+4:]
+```
   - 결과 : 시간 초과
   - 원인 : slicing 새로운 서브스트링에 원래 스트링 원소를 복사해서 붙여넣어야한다.
   - 원인2 : find를 하면 순회하면서 위치를 찾는다.
 
 #### 3. list로 재료 쌓아가면서 마지막 4개 원소를 확인해서 맞으면 indexing한다.
+```
 if len(ingredient) >= 4:
     kitchen = ingredient[0:3]
     for i in ingredient[3:]:
@@ -90,5 +95,6 @@ if len(ingredient) >= 4:
         if kitchen[-4:] == [1,2,3,1]:
             hamburger += 1
             kitchen = kitchen[:-4]
+```
   - 결과 : 시간 초과
   - 원인 : slicing 작업은 파이썬이 새로운 리스트에 원소를 붙여넣어야하기 때문에
