@@ -184,4 +184,5 @@ Empty
 <p>오른손잡이가 [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]를 순서대로 누르면 사용한 손은 <code>"LLRLLRLLRL"</code>이 됩니다.</p>
 
 
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+### Approach
+- 2차원 사전을 이용한다. ( 눌러야하는 키가 2,5,8,0일 경우 )
