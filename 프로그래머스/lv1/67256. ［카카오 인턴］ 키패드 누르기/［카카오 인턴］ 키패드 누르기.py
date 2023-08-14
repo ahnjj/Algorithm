@@ -27,18 +27,12 @@ def solution(numbers, hand):
             R_cur = i
             result += "R"
         elif i in (2,5,8,0):
-            if L[L_cur][i] > R[R_cur][i]:
+            L_d, R_d = L[L_cur][i], R[R_cur][i] 
+            if (L_d > R_d) or (L_d == R_d and hand == 'right'):
                 R_cur = i
                 result += "R"
-            elif L[L_cur][i] < R[R_cur][i]:
+            elif (L_d < R_d) or (L_d == R_d and hand == 'left'):
                 L_cur = i
                 result += "L" 
-            elif L[L_cur][i] == R[R_cur][i]:
-                if hand == 'left':
-                    L_cur = i
-                    result += "L"   
-                else:
-                    R_cur = i
-                    result += "R"
 
     return result
