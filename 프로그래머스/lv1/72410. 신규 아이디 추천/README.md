@@ -10,10 +10,6 @@
 
 코딩테스트 연습 > 2021 KAKAO BLIND RECRUITMENT
 
-### 채점결과
-
-Empty
-
 ### 문제 설명
 
 <p>카카오에 입사한 신입 개발자 <code>네오</code>는 "카카오계정개발팀"에 배치되어, 카카오 서비스에 가입하는 유저들의 아이디를 생성하는 업무를 담당하게 되었습니다. "네오"에게 주어진 첫 업무는 새로 가입하는 유저들이 카카오 아이디 규칙에 맞지 않는 아이디를 입력했을 때, 입력된 아이디와 유사하면서 규칙에 맞는 아이디를 추천해주는 프로그램을 개발하는 것입니다.<br>
@@ -153,5 +149,5 @@ new_id에 나타날 수 있는 특수문자는 <code>-_.~!@#$%^&amp;*()=+[{]}:?,
 6단계 <code>"abcdefghijklmn.p"</code> → <code>"abcdefghijklmn."</code> → <code>"abcdefghijklmn"</code><br>
 7단계 변화 없습니다.</p>
 
-
-> 출처: 프로그래머스 코딩 테스트 연습, https://programmers.co.kr/learn/challenges
+### Approach
+- 특정 문자열 변경하는 경우 -> 정규표현식!
