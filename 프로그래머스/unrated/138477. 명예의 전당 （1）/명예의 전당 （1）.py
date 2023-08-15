@@ -12,3 +12,16 @@ def solution(k, score):
         lowest.append(min(hall))
 
     return lowest
+
+# sort / slicing은 원소 길이가 길어지면 비효율적이다.
+# Queue(FINFO)를 사용하라
+
+    q = []
+    lowest = []
+    for singer in score:
+        q.append(singer)
+        if len(q) > k:
+            q.remove(min(q))
+    
+        lowest.append(min(q))
+    return lowest
