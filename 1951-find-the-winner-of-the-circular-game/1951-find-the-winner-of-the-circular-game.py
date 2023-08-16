@@ -8,8 +8,7 @@ class Solution:
 
         while len(q) != 1:
             for i in range(k-1):
-                tmp = q.popleft()
-                q.append(tmp)
+                q.append(q.popleft())
             q.popleft()
 
         return q.popleft()
