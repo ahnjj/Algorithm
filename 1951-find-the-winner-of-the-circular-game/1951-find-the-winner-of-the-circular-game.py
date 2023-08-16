@@ -1,0 +1,15 @@
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        from collections import deque
+        q = deque()
+
+        for i in range(1,n+1):
+            q.append(i)
+
+        while len(q) != 1:
+            for i in range(k-1):
+                tmp = q.popleft()
+                q.append(tmp)
+            q.popleft()
+
+        return q.popleft()
