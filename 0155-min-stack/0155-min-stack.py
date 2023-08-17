@@ -15,11 +15,11 @@ class MinStack:
             self.currentMin = val
 
     def pop(self) -> None:
-        a = self.stack.pop()
-        if a == self.previousMin[-1]:
+        if self.stack[-1] == self.previousMin[-1]:
             self.previousMin.pop()
             if self.previousMin:
                 self.currentMin = self.previousMin[-1]
+        self.stack.pop()
 
     def top(self) -> int:
         return self.stack[-1]
