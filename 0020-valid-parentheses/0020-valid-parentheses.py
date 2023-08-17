@@ -1,34 +1,18 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        stk = list(s)
-        tmp = []
+        stk = []
+        opened = ['[', '(', '{']
+        closed = [']', ')', '}']
 
-        for i in range(len(stk)):
-            if not tmp:
-                if (stk[-1] not in [')',']','}']):
-                    return False
-                else:
-                    tmp.append(stk.pop())
+        for i in s:
+            if i in opened:
+                stk.append(i)
             else:
-                if stk[-1] in [')',']','}']:
-                    tmp.append(stk.pop())
+                if len(stk) != 0 and opened[closed.index(i)] == stk[-1]:
+                    stk.pop()
                 else:
-                    if tmp[-1] == ')':
-                        if stk.pop() == '(':
-                            tmp.pop()
-                        else:
-                            return False
-                    elif tmp[-1] == ']' :
-                        if stk.pop() == '[':
-                            tmp.pop()
-                        else:
-                            return False
-                    elif tmp[-1] == '}':
-                        if stk.pop() == '{':
-                            tmp.pop()
-                        else:
-                            return False
+                    return False
         
-        return True if not(tmp or stk) else False
+        return False if stk else True
                 
             
