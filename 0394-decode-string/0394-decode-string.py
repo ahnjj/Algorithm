@@ -1,23 +1,21 @@
 class Solution:
     def decodeString(self, s: str) -> str:
+        nested,num = "",0
         stack = []
-
         for v in s:
-            if v != ']':
-                stack.append(v)
+            if v.isdigit():
+                num = num*10+int(v)
+            elif v == '[':
+                stack.append(nested)
+                stack.append(num)
+                nested = ''
+                num = 0
             elif v == ']':
-                alpha = ''
-                num = ''
-                while (x := stack.pop())!= '[':
-                    alpha+=x
-
-                while stack and stack[-1].isdigit():
-                    num+= stack.pop()
-
-                new_str = int(num[::-1])*alpha[::-1]
+                repeat = stack.pop()
+                before = stack.pop()
+                nested = before + repeat*nested
+            else:
+                nested += v
                 
-                for i in new_str:
-                    stack.append(i)
-                
-
-        return ''.join(stack)
+        return nested
+            
