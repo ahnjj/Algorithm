@@ -2,6 +2,7 @@ class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         output = 0
         j, k = 1,2
+        // pointer i adjust, k, j moves
         for i in range(len(nums)-2):
             while k < len(nums) and nums[k] < nums[i] + diff*2:
                 k += 1
@@ -11,5 +12,4 @@ class Solution:
             if j<k<len(nums) and nums[k] - nums[j] == diff and nums[j] - nums[i] == diff:
                 output += 1
             
-        
         return output
