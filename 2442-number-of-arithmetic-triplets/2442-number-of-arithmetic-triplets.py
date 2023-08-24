@@ -1,18 +1,15 @@
 class Solution:
     def arithmeticTriplets(self, nums: List[int], diff: int) -> int:
         output = 0
-        j,k = False, False
-        i = 0
-        while i + 2 < len(nums):
-            for x in range(i, len(nums)):
-                if nums[x] == nums[i] + diff:
-                    j = True
-                if nums[x] == nums[i] + diff*2:
-                    k = True
+        j, k = 1,2
+        for i in range(len(nums)-2):
+            while k < len(nums) and nums[k] < nums[i] + diff*2:
+                k += 1
+            while j < k and nums[j] < nums[i] + diff:
+                j += 1
             
-            if j and k:
+            if j<k<len(nums) and nums[k] - nums[j] == diff and nums[j] - nums[i] == diff:
                 output += 1
-            i+=1
-            k,j = 0,0
-
+            
+        
         return output
