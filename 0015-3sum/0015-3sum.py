@@ -5,6 +5,8 @@ class Solution:
         n = len(nums)
 
         for i in range(0,n-2):
+            if nums[i] == nums[i-1] and i > 0:
+                continue
             j = i+1
             k = n-1
             while j < k: 
