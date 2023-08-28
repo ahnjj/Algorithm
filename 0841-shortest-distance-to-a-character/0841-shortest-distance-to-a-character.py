@@ -1,22 +1,19 @@
 class Solution:
     def shortestToChar(self, s: str, c: str) -> List[int]:
+        befc = float('-inf')
         output = []
-        curc, befc = 0, len(s)-1
-        slow = 0
-        for fast, v in enumerate(s):
-            if v == c:
-                curc = fast
-                while slow <= fast:
-                    output.append(min(abs(befc - slow), abs(curc - slow)))
-                    slow += 1
-                befc = curc
 
-        if slow <= len(s)-1 and slow > curc:
-            while slow <= len(s)-1:
-                output.append(abs(curc - slow))
-                slow +=1
-            
-                
+        for i, x in enumerate(s):
+                if x == c:
+                        befc = i
+                output.append(i-befc)
+
+        befc = float('inf')
+        for i in range(len(s)-1, -1, -1):
+                if s[i] == c:
+                        befc = i
+                output[i] = min(output[i], befc-i)
+        
         return output
                 
         
