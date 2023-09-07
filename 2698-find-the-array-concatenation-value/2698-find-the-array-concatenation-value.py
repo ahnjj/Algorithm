@@ -4,12 +4,12 @@ class Solution:
         r = len(nums)-1
         con = 0
 
-        while l < r:
-            con += int(str(nums[l]) + str(nums[r]))
+        while l <= r:
+            if l != r:
+                con += int(str(nums[l]) + str(nums[r]))
+            else:
+                con += nums[l]
             l += 1
             r -= 1
-                
-        if len(nums)%2 != 0:
-            con += nums[l]
         
         return con
