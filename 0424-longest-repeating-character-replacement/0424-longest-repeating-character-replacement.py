@@ -1,20 +1,19 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        def changeTo(target):
-            start = 0
-            res = 1
-            change = 0
+        start = 0
+        res = 1
+        targets = {}
+        for end in range(len(s)):
+            if s[end] not in targets:
+                targets[s[end]] = 0
+            targets[s[end]] += 1
+            cur = end - start + 1
+            if cur - max(targets.values()) <= k:
+                res = max(res, cur)
+            else:
+                targets[s[start]] -= 1
+                if not targets[s[start]]:
+                    targets.pop(s[start])
+                start += 1
             
-            for end in range(len(s)):
-                if s[end] != target:
-                    change += 1
-                    
-                    while change > k:
-                        if s[start] != target:
-                            change -=1
-                        start += 1
-                res = max(res, end - start + 1)
-            return res
-        
-        targets = set(s)
-        return max(changeTo(target) for target in targets)
+        return res
