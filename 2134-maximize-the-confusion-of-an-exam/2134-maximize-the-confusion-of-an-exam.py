@@ -1,20 +1,24 @@
 class Solution:
     def maxConsecutiveAnswers(self, answerKey: str, k: int) -> int:
-        def changeTo(target):
-            start = 0
-            change = 0
-            res = 1
+
+        numT = numF = 0
+        start = 0
+        res = 1
+
+        for end in range(len(answerKey)):
+            if answerKey[end] == 'T':
+                numT += 1
+            else:
+                numF += 1
             
-            for end in range(len(answerKey)):
-                if answerKey[end] == target:
-                    
-                    change += 1       
-                    while change > k:
-                        if answerKey[start] == target:
-                            change -= 1
-                        start += 1 
-                res = max(res, end-start+1)
-            return res
+            while numT > k and numF > k:
+                if answerKey[start] == 'T':
+                    numT -= 1
+                else:
+                    numF -= 1
+                start += 1
 
+            res = max(res, end-start +1)
 
-        return max(changeTo('T'), changeTo('F'))
+        return res
+            
