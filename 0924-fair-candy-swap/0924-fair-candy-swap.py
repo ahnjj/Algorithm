@@ -1,26 +1,22 @@
 class Solution:
     def fairCandySwap(self, aliceSizes: List[int], bobSizes: List[int]) -> List[int]:
-        s1 = sum(aliceSizes)
-        s2 = sum(bobSizes)
+        aliceSizes.sort()
+        bobSizes.sort()
 
-        def binary_search(A, B):
-            B.sort()
+        alice = sum(aliceSizes)
+        bob = sum(bobSizes)
 
-            for box1 in A:
-                l, r = 0, len(B)-1
-                box2 = (2 * box1 + abs(s2 - s1))//2
-                while l<=r:
-                    m = (l+r)//2
-                    if B[m] > box2:
-                        r = m - 1
-                    elif B[m] < box2:
-                        l = m + 1
-                    else:
-                        return [box1, box2]
+        for alice_change in aliceSizes:
+            bl, br = 0, len(bobSizes)-1
+            while bl <= br:
+                bm = bl + (br-bl)//2
+                bob_change = bobSizes[bm]
+                new_alice = alice - alice_change + bob_change
+                new_bob = bob - bob_change + alice_change
 
-
-        if s1 > s2:
-            output = binary_search(bobSizes, aliceSizes)
-            return output[::-1]
-        else:
-            return binary_search(aliceSizes, bobSizes)
+                if new_alice == new_bob:
+                    return [alice_change, bob_change]
+                elif new_alice > new_bob:
+                    br = bm - 1
+                elif new_alice < new_bob:
+                    bl = bm + 1
