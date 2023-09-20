@@ -4,11 +4,11 @@ class Solution:
         n = len(nums)
         l, r = 0, n-1
 
-        while l < r:
+        while l <= r:
             m = (l+r)//2
             if nums[m] == m:
                 l = m + 1
             elif nums[m] > m:
-                r = m
-        return l if n in nums else n
+                r = m - 1
+        return l
     
